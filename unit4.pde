@@ -4,20 +4,37 @@ color lightbrownvl = #D8BE9D;
 color darkerlightbrown =#8E7B64;
 color gray = #551919;
 color darkgray = #A5A5A5;
-
+color grassgreen = #619842;
+color darkg = #556C2E;
+color beige = #FCE8A3;
 void setup() {
   size(800, 600);
 }
 
 void draw() {
-  background(255);
-  house(350, 350);
-  
+  background(beige);
+  house(350, 350, 0.5);
+  house(450, 350, 0.5);
+  house(550, 350, 0.5);
+  house(650, 350, 0.5);
+  house(250, 350, 0.5);
+  house(150, 350, 0.5);
+  house(50, 350, 0.5);
+  stroke(grassgreen);
+  fill(grassgreen);
+  rect(0, 401, 1000, 200);
+  stroke(darkg);
+  fill(darkg);
+  rect(0, 401, 1000, 25);
+  triangle(0, 401, 800, 401, 800, 451);
 }
 
-void house(int x, int y) {
+void house(int x, int y, float s ) {
   pushMatrix();
   translate(x, y);
+  //rotate(PI/2);
+  scale(s);
+  
 
   roof();
   bodyhouse();
@@ -62,5 +79,4 @@ void door() {
 }
 
 void flag() {
-
 }
