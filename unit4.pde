@@ -29,7 +29,7 @@ void draw() {
   triangle(0, 401, 800, 401, 800, 451);
 }
 
-void house(int x, int y, float s ) {
+void house(float x, float y, float s ) {
   pushMatrix();
   translate(x, y);
   //rotate(PI/2);
