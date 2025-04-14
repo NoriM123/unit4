@@ -7,26 +7,42 @@ color darkgray = #A5A5A5;
 color grassgreen = #619842;
 color darkg = #556C2E;
 color beige = #FCE8A3;
+
+int x = 0;
+
 void setup() {
   size(800, 600);
+  background(beige);
+  float x = random(0, 255);
+  while (x<=800) {
+    house(x, 0, 0.25);
+    house(x, 100, 0.25);
+    house(x, 200, 0.25);
+    house(x, 300, 0.25);
+    house(x, 400, 0.25);
+    house(x, 500, 0.25);
+    house(x, 600, 0.25);
+
+    x=x+50;
+  }
 }
 
 void draw() {
-  background(beige);
-  house(350, 350, 0.5);
-  house(450, 350, 0.5);
-  house(550, 350, 0.5);
-  house(650, 350, 0.5);
-  house(250, 350, 0.5);
-  house(150, 350, 0.5);
-  house(50, 350, 0.5);
-  stroke(grassgreen);
-  fill(grassgreen);
-  rect(0, 401, 1000, 200);
-  stroke(darkg);
-  fill(darkg);
-  rect(0, 401, 1000, 25);
-  triangle(0, 401, 800, 401, 800, 451);
+
+  //house(350, 350, 0.5);
+  //house(450, 350, 0.5);
+  //house(550, 350, 0.5);
+  //house(650, 350, 0.5);
+  //house(250, 350, 0.5);
+  //house(150, 350, 0.5);
+  //house(50, 350, 0.5);
+  //stroke(grassgreen);
+  //fill(grassgreen);
+  //rect(0, 401, 1000, 200);
+  //stroke(darkg);
+  //fill(darkg);
+  //rect(0, 401, 1000, 25);
+  //triangle(0, 401, 800, 401, 800, 451);
 }
 
 void house(float x, float y, float s ) {
@@ -34,7 +50,7 @@ void house(float x, float y, float s ) {
   translate(x, y);
   //rotate(PI/2);
   scale(s);
-  
+
 
   roof();
   bodyhouse();
