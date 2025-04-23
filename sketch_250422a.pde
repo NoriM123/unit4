@@ -15,8 +15,9 @@ void setup() {
   size(800, 600);
   drawGradient(color(cyan), color(darkblue));
   fish(int(random(0, 800)), int(random(0, 600)));
-  drawFish(400, 300, 1.5);
+  drawFish(random(300, 400), random(300,600), 1.5);
   fish(int(random(0, 800)), int(random(0, 600)));
+  thing(200,400);
 }
 
 void drawGradient(color c1, color c2) {
@@ -31,15 +32,23 @@ void drawGradient(color c1, color c2) {
 }
 
 void fish(int x, int y) {
-  strokeWeight(3);
+  strokeWeight(0);
   stroke(0);
   fill(#ffa500);
+  triangle(x - 10, y, x - 35, y - 10, x - 35, y + 10);
+  fill(#F09800);
   ellipse(x, y, 40, 20);
-  triangle(x - 22, y, x - 35, y - 10, x - 35, y + 10);
   noStroke();
   fill(0);
-  ellipse(x + 10, y - 5, 5, 5);
+  ellipse(x + 10, y -2, 5, 5);
 }
+
+void thing(int x, int y) {
+ colorMode(HSB);
+ fill(darkblue);
+ arc(0, 0, 30, 40, 0, radians(180));
+}
+  
 
 
 
@@ -49,7 +58,7 @@ void drawFish(float x, float y, float s) {
   scale(s);
 
   noStroke();
-    fill(#c1d6e6);
+  fill(#c1d6e6);
   rect(90, -25, 50, 50, 25, 5, 5, 25);
   fill(#bcced6);
   triangle(-10, -50, 25, -70, 20, -40);
