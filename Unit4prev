@@ -1,0 +1,132 @@
+color darkblue = #205781;
+color cyan = #98D2C0;
+color deepBlue = #001f3f;
+color aqua = #00ffff;
+color seaGreen = #2e8b57;
+color coralPink = #ff7f50;
+color sandy = #f4e2d8;
+color bubbleWhite = #e0ffff;
+color sunYellow = #fff700;
+color fishOrange = #ffa500;
+color rockGray = #7d7f7d;
+color reefPurple = #800080;
+
+int q = -40;
+
+void setup() {
+  size(1000, 900);
+  drawGradient(color(cyan), color(darkblue));
+  jellyfishthing(random(20, 800), random(600, 750));
+  drawFish(random(40, 850), random(400, 600), random(1, 1.5));
+  drawTurtle(400, 400, 1);
+  fish(int(random(5, 890)), int(random(5, 400)));
+  fish(int(random(5, 900)), int(random(5, 200)));
+}
+
+void drawGradient(color c1, color c2) {
+  int y = 0;
+  while (y < height) {
+    float inter = map(y, 0, height, 0, 1);       // % between top and bottom
+    color c = lerpColor(c1, c2, inter);          // blend color based on position
+    stroke(c);
+    line(0, y, width, y);                        // draw horizontal line
+    y=y+1;
+  }
+}
+
+void fish(int x, int y) {
+  noStroke();
+  fill(#497D74);
+  triangle(x - 10, y, x - 35, y - 10, x - 35, y + 10);
+  strokeWeight(2);
+  stroke(#497D74);
+  fill(#71BBB2);
+  ellipse(x, y, 55, 25);
+  noStroke();
+  fill(255);
+  ellipse(x+10, y-2, 7, 7);
+  fill(0);
+  ellipse(x + 10, y -2, 4, 4);
+}
+
+void jellyfishthing(float x, float y) {
+  pushMatrix();
+  translate(x, y);
+  stroke(255);
+  colorMode(HSB);
+  fill(#92dde0);
+  arc(0, 0, 100, 90, PI, TWO_PI, CHORD);
+  fill(#040001);
+  noStroke();
+  stroke(255);
+  while (q<=40) {
+    line(q, 1, random(q-5, q+5), random(60, 120));
+    q=q+2;
+  }
+  popMatrix();
+}
+
+
+void drawFish(float x, float y, float s) {
+  pushMatrix();
+  translate(x, y);
+  scale(s);
+
+  noStroke();
+  fill(#bcced6);
+  rect(90, -25, 50, 50, 25, 5, 5, 25);
+  fill(#bcced6);
+  triangle(-10, -50, 25, -70, 20, -40);
+  // Body
+  strokeWeight(3);
+  stroke(#bcced6);
+  fill(#dce6ea);
+  ellipse(0, 0, 200, 100);
+  noStroke();
+  // Eye
+  fill(255);
+  ellipse(-60, -20, 20, 20); // eye white
+  fill(0);
+  ellipse(-60, -20, 10, 10); // pupil
+  // Fin
+  fill(#bcced6);
+  triangle(0, 45, -40, 25, -40, 65);
+  popMatrix();
+}
+
+void drawTurtle(float x, float y, float s) {
+  pushMatrix();
+  translate(x, y);
+  scale(s);
+  noStroke();
+   fill(#9ACD32);
+  ellipse(-50, 15, 25, 25);
+  ellipse(-40, 10, 20, 20);
+   ellipse(40, 15, 25, 25);
+  ellipse(50, 10, 20, 20);
+fill(#556B2F);
+//shell
+
+
+strokeWeight(2);
+  stroke(#8FBC8F);
+  ellipse(0, 0, 100, 30);
+    arc(0, 0, 100, 80, PI, TWO_PI, CHORD);
+    stroke(#556B2F);
+    strokeWeight(3);
+  line(-47, 0, 47, 0);
+  
+  fill(#9ACD32);
+  noStroke();
+  ellipse(60, -10, 40, 30);
+  fill(255);
+  ellipse(67, -14, 9, 7);
+  fill(0);
+  ellipse(67, -14, 6, 4);
+
+  line(0, 12, 0, 0);
+    strokeWeight(1);
+    stroke(#556B2F);
+  line(78, -7, 70, -7);
+  popMatrix();
+}
