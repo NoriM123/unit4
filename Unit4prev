@@ -12,13 +12,18 @@ color rockGray = #7d7f7d;
 color reefPurple = #800080;
 
 int q = -40;
-
+int x = 0;
 void setup() {
   size(1000, 900);
+  
   drawGradient(color(cyan), color(darkblue));
   jellyfishthing(random(20, 800), random(600, 750));
   drawFish(random(40, 850), random(400, 600), random(1, 1.5));
-  drawTurtle(400, 400, 1);
+  while(x<=500) {
+    drawTurtle(x, 350, 1);
+    drawTurtle(x+100, 450, 1);
+    x = x + 200;
+  }
   fish(int(random(5, 890)), int(random(5, 400)));
   fish(int(random(5, 900)), int(random(5, 200)));
 }
