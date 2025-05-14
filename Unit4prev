@@ -13,6 +13,7 @@ color reefPurple = #800080;
 
 int q = -40;
 int x = 0;
+int r = 0;
 void setup() {
   size(1000, 900);
 
@@ -41,9 +42,9 @@ void drawGradient(color c1, color c2) {
 }
 
 void fish(int x, int y) {
-  bluefishfin(x,y);
-  bluefishbody(x,y);
-  fisheyeball(x,y);
+  bluefishfin(x, y);
+  bluefishbody(x, y);
+  fisheyeball(x, y);
 }
 
 void bluefishfin(int x, int y) {
@@ -130,16 +131,38 @@ void drawTurtle(float x, float y, float s) {
   pushMatrix();
   translate(x, y);
   scale(s);
+
   noStroke();
   fill(#9ACD32);
-  ellipse(-50, 15, 25, 25);
-  ellipse(-40, 10, 20, 20);
+
+  while (r<=25) {
+    stroke(0);
+    
+    circle(40, 15, r);
+
+    r = r + 1;
+  }
   ellipse(40, 15, 25, 25);
+  ellipse(-40, 10, 20, 20);
+  ellipse(-50, 15, 25, 25);
   ellipse(50, 10, 20, 20);
   fill(#556B2F);
+
+  shell();
+  turtlehead();
+  linesontheturtle();
+  popMatrix();
+}
+
+void linesontheturtle () {
+  line(0, 12, 0, 0);
+  strokeWeight(1);
+  stroke(#556B2F);
+  line(78, -7, 70, -7);
+}
+
+void shell () {
   //shell
-
-
   strokeWeight(2);
   stroke(#8FBC8F);
   ellipse(0, 0, 100, 30);
@@ -147,7 +170,9 @@ void drawTurtle(float x, float y, float s) {
   stroke(#556B2F);
   strokeWeight(3);
   line(-47, 0, 47, 0);
+}
 
+void turtlehead () {
   fill(#9ACD32);
   noStroke();
   ellipse(60, -10, 40, 30);
@@ -155,10 +180,4 @@ void drawTurtle(float x, float y, float s) {
   ellipse(67, -14, 9, 7);
   fill(0);
   ellipse(67, -14, 6, 4);
-
-  line(0, 12, 0, 0);
-  strokeWeight(1);
-  stroke(#556B2F);
-  line(78, -7, 70, -7);
-  popMatrix();
 }
