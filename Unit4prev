@@ -51,22 +51,14 @@ void bluefishfin(int x, int y) {
   noStroke();
   fill(#497D74);
   triangle(x - 10, y, x - 35, y - 10, x - 35, y + 10);
-  
-
   stroke(0); 
-  int tipX = x - 10;
-  int tipY = y;
-  
-  float baseStartY = y - 10;
-  float baseEndY = y + 10;
-  float baseX = x - 35;
-  
-  float step = 6; //between lines
-  float currentY = baseStartY;
-
-  while (currentY <= baseEndY) {
-    line(x-10, tipY, baseX, currentY);
-    currentY += step;
+  float Y = y - 10;
+  float A = y + 10;
+  float currentY = Y;
+  while (currentY <= A) {
+    strokeWeight(1);
+    line(x-10, y, x-35, currentY);
+    currentY += 6;
   }
 }
 
