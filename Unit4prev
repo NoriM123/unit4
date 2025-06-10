@@ -142,17 +142,19 @@ void drawTurtle(float x, float y, float s) {
 
   int r = 20;
   int a = 19;
-  noStroke();
-  fill(255);
+  stroke(#8FBC8F);
+  noFill();
   while (r>0) {
     circle(0, 0, r);
-    r = r - 2;
+    circle(20, -22, r);
+    r = r - 8;
   }
 
   while (a>0) {
     fill(#556B2F);
-    circle(random(0,5), random(0,5), a);
-    a = a - 2;
+    circle(0, 0, a);
+    circle(-20, -22, r);
+    a = a - 8;
   }
 
   popMatrix();
